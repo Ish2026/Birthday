@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Miles & Memories</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+
+body{
+    overflow:hidden;
+    font-family:'Outfit',sans-serif;
+    background:#000;
+}
+
+.hero{
+    position:relative;
+    width:100vw;
+    height:100vh;
+    background:url("Images/Tram_2.png") center/cover;
+    animation:zoom 35s ease-in-out infinite alternate;
+}
+
+.overlay{
+    position:absolute;
+    inset:0;
+    background:linear-gradient(rgba(0,0,0,.78),rgba(0,0,0,.65));
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.hero-content{
+    text-align:center;
+    color:#f5f1e8;
+    padding:40px;
+}
+
+.eyebrow{
+    font-size:14px;
+    letter-spacing:7px;
+    opacity:.7;
+    margin-bottom:28px;
+}
+
+h1{
+    font-size:68px;
+    font-weight:300;
+    margin-bottom:24px;
+}
+
+.subtitle{
+    font-size:24px;
+    line-height:1.8;
+    margin-bottom:50px;
+}
+
+.startButton{
+    cursor:pointer;
+    padding:18px 48px;
+    background:rgba(255,255,255,.05);
+    border:1px solid rgba(255,255,255,.35);
+    border-radius:999px;
+    color:#fff;
+}
+
+#homeOverlay,
+#leavingOverlay,
+#nitOverlay,
+#teachingOverlay,
+#farewellOverlay,
+#researchOverlay,
+#puneOverlay,
+#friendsOverlay,
+#sunsetOverlay,
+#freedomOverlay{
+    position:fixed;
+    inset:0;
+    display:none;
+    justify-content:center;
+    align-items:center;
+    background:rgba(0,0,0,.92);
+    backdrop-filter:blur(12px);
+}
+
+.storyCard{
+    width:1100px;
+    max-width:90%;
+    background:#0f0f0f;
+    border-radius:30px;
+    overflow:hidden;
+    display:flex;
+}
+
+.storyImage{
+    width:58%;
+}
+
+.storyImage img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.storyText{
+    width:42%;
+    padding:70px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    color:white;
+}
+
+.storyTitle{
+    font-size:42px;
+    font-weight:300;
+    line-height:1.4;
+    margin-bottom:50px;
+}
+
+.divider{
+    width:80px;
+    height:1px;
+    background:rgba(255,255,255,.18);
+    margin-bottom:30px;
+}
+
+.storyLink{
+    background:none;
+    border:none;
+    color:#d8c7a0;
+    font-size:18px;
+    text-align:left;
+    cursor:pointer;
+}
+
+/* FIXED TEACHING CHAPTER */
+
+.teachingChapter{
+    width:1100px;
+    max-width:92%;
+    background:#0b0b0b;
+    border-radius:30px;
+    overflow:hidden;
+    box-shadow:0 30px 100px rgba(0,0,0,.7);
+}
+
+.chapterImage{
+    width:100%;
+    height:auto;
+    display:block;
+    background:#000;
+}
+
+.chapterQuote{
+    padding:70px 60px;
+    text-align:center;
+    font-size:54px;
+    font-weight:300;
+    line-height:1.35;
+    color:#f5f1e8;
+    background:#080808;
+}
+
+.chapterFooter{
+    padding:50px;
+    text-align:center;
+    background:#0b0b0b;
+}
+
+.chapterButton{
+    background:none;
+    border:none;
+    font-family:'Outfit',sans-serif;
+    font-size:22px;
+    color:#b8a98a;
+    cursor:pointer;
+}
+
+@keyframes zoom{
+    from{transform:scale(1)}
+    to{transform:scale(1.08)}
+}
+
+/* CINEMATIC ENHANCEMENTS */
+.storyCard{
+    box-shadow:0 30px 90px rgba(0,0,0,.65) !important;
+}
+
+.storyImage{
+    overflow:hidden;
+}
+
+.storyImage img{
+    animation:kenburns 14s ease-in-out infinite alternate;
+}
+
+.storyText{
+    min-height:520px;
+}
+
+.storyTitle{
+    flex:1;
+    display:flex;
+    align-items:center;
+}
+
+.divider{
+    margin-top:auto;
+}
+
+.storyLink{
+    transition:all .35s ease;
+}
+
+.storyLink:hover{
+    transform:translateX(8px);
+    color:#fff;
+}
+
+body::before{
+    content:'';
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    opacity:.03;
+    background-image:radial-gradient(circle,white 0.5px,transparent 0.5px);
+    background-size:4px 4px;
+}
+
+@keyframes kenburns{
+    from{transform:scale(1);}
+    to{transform:scale(1.06);}
+}
+
+.slide-in{
+    animation:slideIn .7s ease forwards;
+}
+
+.slide-out{
+    animation:slideOut .5s ease forwards;
+}
+
+@keyframes slideIn{
+    from{opacity:0;transform:translateX(80px);}
+    to{opacity:1;transform:translateX(0);}
+}
+
+@keyframes slideOut{
+    from{opacity:1;transform:translateX(0);}
+    to{opacity:0;transform:translateX(-80px);}
+}
+
+</style>
+</head>
+
+<body>
+
+<section class="hero">
+<div class="overlay">
+<div class="hero-content">
+
+<div class="eyebrow">CELEBRATING ANOTHER CHAPTER</div>
+
+<h1>Miles & Memories</h1>
+
+<p class="subtitle">
+From curiosity to discovery,<br>
+from friendships to memories,<br>
+every chapter led here.
+</p>
+
+<button class="startButton" onclick="openHome()">
+Step Aboard →
+</button>
+
+</div>
+</div>
+</section>
+
+<div id="homeOverlay">
+<div class="storyCard">
+<div class="storyImage">
+<img src="Images/home.png">
+</div>
+<div class="storyText">
+<div class="storyTitle">Some beginnings stay with us forever.</div>
+<div class="divider"></div>
+<button class="storyLink" onclick="openLeavingKolkata()">✦ Turn the Page</button>
+</div>
+</div>
+</div>
+
+<div id="leavingOverlay">
+<div class="storyCard">
+<div class="storyImage">
+<img src="Images/LeavingKolkata.png">
+</div>
+<div class="storyText">
+<div class="storyTitle">Some journeys begin with a goodbye.</div>
+<div class="divider"></div>
+<button class="storyLink" onclick="openNIT()">Board the Train →</button>
+</div>
+</div>
+</div>
+
+<div id="nitOverlay">
+<div class="storyCard">
+<div class="storyImage">
+<img src="Images/NIT.png">
+</div>
+<div class="storyText">
+<div class="storyTitle">Where curiosity found direction.</div>
+<div class="divider"></div>
+<button class="storyLink" onclick="openTeaching()">The Adventure Begins →</button>
+</div>
+</div>
+</div>
+
+<div id="teachingOverlay">
+<div class="storyCard">
+<div class="storyImage">
+<img src="Images/Teaching.png">
+</div>
+<div class="storyText">
+<div class="storyTitle">Every lesson taught left a lesson behind.</div>
+<div class="divider"></div>
+<button class="storyLink" onclick="openFarewell()">Onward →</button>
+</div>
+</div>
+</div>
+
+<div id="farewellOverlay">
+<div class="storyCard">
+<div class="storyImage">
+<img src="Images/Farewell.png">
+</div>
+<div class="storyText">
+<div class="storyTitle">Some goodbyes are really celebrations.</div>
+<div class="divider"></div>
+<button class="storyLink" onclick="openResearch()">The Journey Continues →</button>
+</div>
+</div>
+</div>
+
+<div id="researchOverlay">
+<div class="storyCard">
+<div class="storyImage">
+<img src="Images/Researcher.png">
+</div>
+<div class="storyText">
+<div class="storyTitle">Every discovery began with curiosity.</div>
+<div class="divider"></div>
+<button class="storyLink" onclick="openPune()">Toward Discovery →</button>
+</div>
+</div>
+</div>
+
+<div id="puneOverlay"><div class="storyCard"><div class="storyImage"><img src="Images/PuneDiaries.png"></div><div class="storyText"><div class="storyTitle">Turning knowledge into impact.</div><div class="divider"></div><button class="storyLink" onclick="openFriends()">New Horizons →</button></div></div></div>
+
+<div id="friendsOverlay"><div class="storyCard"><div class="storyImage"><img src="Images/TravelWithFriends.png"></div><div class="storyText"><div class="storyTitle">The best journeys are never travelled alone.</div><div class="divider"></div><button class="storyLink" onclick="openSunset()">Keep Exploring →</button></div></div></div>
+
+<div id="sunsetOverlay"><div class="storyCard"><div class="storyImage"><img src="Images/WatchingSunset.png"></div><div class="storyText"><div class="storyTitle">Some journeys are measured not in miles, but in moments.</div><div class="divider"></div><button class="storyLink" onclick="openFreedom()">One More Adventure →</button></div></div></div>
+
+<div id="freedomOverlay"><div class="storyCard"><div class="storyImage"><img src="Images/Sunset.png"></div><div class="storyText"><div class="storyTitle">Some dreams were meant to be lived, not merely imagined.</div><div class="divider"></div><button class="storyLink" onclick="startBirthdayPart()">One More Chapter →</button></div></div></div>
+
+<script>
+function openHome(){
+document.getElementById('homeOverlay').style.display='flex';
+}
+
+function openLeavingKolkata(){
+document.getElementById('homeOverlay').style.display='none';
+document.getElementById('leavingOverlay').style.display='flex';
+}
+
+function openNIT(){
+document.getElementById('leavingOverlay').style.display='none';
+document.getElementById('nitOverlay').style.display='flex';
+}
+
+function openTeaching(){
+document.getElementById('nitOverlay').style.display='none';
+document.getElementById('teachingOverlay').style.display='flex';
+}
+
+function openFarewell(){
+document.getElementById('teachingOverlay').style.display='none';
+document.getElementById('farewellOverlay').style.display='flex';
+}
+
+function openResearch(){
+document.getElementById('farewellOverlay').style.display='none';
+document.getElementById('researchOverlay').style.display='flex';
+}
+function openPune(){document.getElementById('researchOverlay').style.display='none';document.getElementById('puneOverlay').style.display='flex';}
+function openFriends(){document.getElementById('puneOverlay').style.display='none';document.getElementById('friendsOverlay').style.display='flex';}
+function openSunset(){document.getElementById('friendsOverlay').style.display='none';document.getElementById('sunsetOverlay').style.display='flex';}
+function openFreedom(){document.getElementById('sunsetOverlay').style.display='none';document.getElementById('freedomOverlay').style.display='flex';}
+</script>
+
+
+<script>
+function showOverlay(currentId,nextId){
+    const current=document.getElementById(currentId);
+    const next=document.getElementById(nextId);
+
+    current.querySelector('.storyCard').classList.add('slide-out');
+
+    setTimeout(()=>{
+        current.style.display='none';
+        current.querySelector('.storyCard').classList.remove('slide-out');
+
+        next.style.display='flex';
+        next.querySelector('.storyCard').classList.add('slide-in');
+
+        setTimeout(()=>{
+            next.querySelector('.storyCard').classList.remove('slide-in');
+        },700);
+    },450);
+}
+</script>
+
+
+<!-- PART II : BIRTHDAY MESSAGE -->
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+
+<style>
+#birthdaySection{
+display:none;
+position:fixed;
+inset:0;
+z-index:9999;
+background:url('Birthday message.png') center center/cover no-repeat;
+align-items:center;
+justify-content:center;
+text-align:center;
+color:#f5f1e8;
+}
+
+#birthdaySection::before{
+content:'';
+position:absolute;
+inset:0;
+background:rgba(0,0,0,.45);
+backdrop-filter:blur(2px);
+}
+
+.birthdayContent{
+position:relative;
+max-width:1000px;
+padding:60px;
+animation:fadeMsg 2s ease;
+}
+
+.birthdayText{
+font-size:34px;
+line-height:1.8;
+}
+
+
+.birthdayReveal{
+font-size:46px;
+letter-spacing:4px;
+text-transform:uppercase;
+color:#f5e6b8;
+}
+
+.birthdayReveal span{
+display:block;
+font-family:'Great Vibes',cursive;
+font-size:130px;
+text-transform:none;
+margin-top:15px;
+text-shadow:0 0 30px rgba(255,215,120,.4);
+}
+
+
+@keyframes fadeMsg{
+from{opacity:0;transform:translateY(30px)}
+to{opacity:1;transform:translateY(0)}
+}
+</style>
+
+<audio id="birthdayMusic" loop>
+<source src="Happy Birthday Instrumental Mp3 Download.mp3" type="audio/mpeg">
+</audio>
+
+<div id="birthdaySection">
+<div class="birthdayContent">
+<div id="birthdayDynamic" class="birthdayText"></div>
+</div>
+</div>
+
+<script>
+const birthdayScenes=[
+"For a moment,<br>let's leave the photographs behind.",
+"Every life is a collection of moments.",
+"Some moments become memories.",
+"Some memories become stories.",
+"And some stories deserve to be celebrated.",
+"<div style='font-family:Great Vibes,cursive;font-size:110px;line-height:1.1;color:#f5e6b8;'>Happy Birthday<br>Deepan</div>",
+"Life has taken you through classrooms, campuses, laboratories, and cities — but everywhere you went, you left behind memories, friendships, and stories worth keeping.",
+"The lights may change, the roads may turn, and the years may pass —<br><br>but the curious heart that keeps exploring, learning, laughing, and bringing people together remains the same.",
+"Here's to all the places you've been,<br><br>all the people whose lives you've touched,<br><br>and all the beautiful journeys still ahead.",
+"With warm wishes<br><br><span style='font-size:28px;color:#d8c7a0'>Open Your Gift →</span>"
+];
+
+function startBirthdayPart(){
+document.getElementById('freedomOverlay').style.display='none';
+document.getElementById('birthdaySection').style.display='flex';
+document.getElementById('birthdayMusic').play().catch(()=>{});
+
+let i=0;
+const target=document.getElementById('birthdayDynamic');
+target.innerHTML=birthdayScenes[0];
+
+const timer=setInterval(()=>{
+i++;
+if(i>=birthdayScenes.length){clearInterval(timer);return;}
+target.style.opacity=0;
+target.innerHTML='';
+setTimeout(()=>{
+target.innerHTML=birthdayScenes[i];
+target.style.opacity=1;
+},700);
+},9500);
+}
+</script>
+
+</body>
+</html>
