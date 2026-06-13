@@ -607,7 +607,7 @@ const birthdayScenes=[
 "Life has taken you through classrooms, campuses, laboratories, and cities — but everywhere you went, you left behind memories, friendships, and stories worth keeping.",
 "The lights may change, the roads may turn, and the years may pass —<br><br>but the curious heart that keeps exploring, learning, laughing, and bringing people together remains the same.",
 "Here's to all the places you've been,<br><br>all the people whose lives you've touched,<br><br>and all the beautiful journeys still ahead.",
-"With warm wishes<br>and gratitude.<br><br><span style='font-size:28px;color:#d8c7a0'>One Last Gift Awaits →</span>"
+"With warm wishes<br>and gratitude.<br><br><span onclick='openGiftSection()' style='font-size:28px;color:#d8c7a0;cursor:pointer;text-decoration:underline;'>One Last Gift Awaits →</span>"
 ];
 
 function startBirthdayPart(){
@@ -679,19 +679,25 @@ May the next chapter be your best one yet.
 
 <script>
 function openGiftSection(){
+
     const music=document.getElementById('birthdayMusic');
+
     let fade=setInterval(()=>{
+
         if(music && music.volume>0.05){
             music.volume-=0.05;
         }else{
             clearInterval(fade);
+
             if(music){
                 music.pause();
                 music.currentTime=0;
                 music.volume=1;
             }
         }
+
     },100);
+
     document.getElementById('giftSection').style.display='block';
 }
 </script>
