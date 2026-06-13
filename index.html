@@ -356,6 +356,18 @@ body::before{
 }
 
 </style>
+
+<style>
+#giftSection{display:none;position:fixed;inset:0;z-index:10000;background:linear-gradient(135deg,#090909,#141414);overflow-y:auto;padding:60px 20px;color:#f5f1e8}
+.giftContainer{max-width:1100px;margin:auto}
+.giftTitle{text-align:center;font-size:52px;font-weight:300;margin-bottom:15px}
+.giftSubtitle{text-align:center;font-size:22px;opacity:.8;margin-bottom:50px}
+.audioGrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px}
+.audioCard{background:#111;border:1px solid rgba(255,255,255,.08);border-radius:24px;padding:28px}
+.audioBtn{display:inline-block;padding:12px 22px;border-radius:999px;text-decoration:none;color:#fff;border:1px solid rgba(255,255,255,.25)}
+.finalNote{margin-top:60px;text-align:center;font-size:24px;line-height:1.9}
+</style>
+
 </head>
 
 <body>
@@ -630,6 +642,25 @@ target.style.opacity=1;
 },700);
 },9500);
 }
+</script>
+
+
+<div id="giftSection">
+<div class="giftContainer">
+<h2 class="giftTitle">🎁 One Last Gift Awaits</h2>
+<div class="giftSubtitle">Some stories are read. Some stories are heard. And some stay with us long after they end.</div>
+<div class="audioGrid">
+<div class="audioCard"><h3>🔍 Byomkesh Bakshi</h3><p>Truth hides in the smallest details.</p><a class="audioBtn" target="_blank" href="https://youtube.com/playlist?list=PLq71IJk8mCV5z1vvLnRcQSLKJnAuwmohf">Listen</a></div>
+<div class="audioCard"><h3>🕵️ Feluda</h3><p>Adventure, deduction and a touch of nostalgia.</p><a class="audioBtn" target="_blank" href="https://youtube.com/playlist?list=PLq71IJk8mCV7wu6haZBFgoCauLDYPyMZX">Listen</a></div>
+<div class="audioCard"><h3>🏏 Moti Nandi Stories</h3><p>For those who know that sport is never just a game.</p><a class="audioBtn" target="_blank" href="https://youtube.com/playlist?list=PL8JejPLOo8PwS8CtsUW99wnH6eR6eyfZo">Listen</a></div>
+<div class="audioCard"><h3>⚔️ Sadashib</h3><p>A familiar companion for journeys through Maharashtra and beyond.</p><a class="audioBtn" target="_blank" href="https://youtube.com/playlist?list=PLQmTeTB1gkeoBOw9qJt1N-w3brb4SbIFE">Listen</a></div>
+<div class="audioCard"><h3>😄 One Last Story</h3><p>Because every good birthday deserves a smile.</p><a class="audioBtn" target="_blank" href="https://youtu.be/cXHr4bv6VEI">Listen</a></div>
+</div>
+<div class="finalNote">Every journey is made of places,<br>people,<br>stories,<br>and the moments we carry with us.<br><br>Happy Birthday, Deepan.<br><br>May the next chapter be your best one yet.</div>
+</div></div>
+
+<script>
+function openGiftSection(){document.getElementById('giftSection').style.display='block';}
 </script>
 
 </body>
