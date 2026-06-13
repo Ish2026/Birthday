@@ -6,7 +6,7 @@
 <title>Miles & Memories</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500&family=Cormorant+Garamond:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
@@ -21,7 +21,7 @@ body{
     position:relative;
     width:100vw;
     height:100vh;
-    background:url("Images/Tram_2.png") center/cover;
+    background:url("Images/Walk.png") center/cover;
     animation:zoom 35s ease-in-out infinite alternate;
 }
 
@@ -45,6 +45,12 @@ body{
     letter-spacing:7px;
     opacity:.7;
     margin-bottom:28px;
+}
+
+h1,
+.storyTitle,
+.giftTitle{
+font-family:'Cormorant Garamond',serif;
 }
 
 h1{
@@ -627,17 +633,38 @@ target.innerHTML='';
 setTimeout(()=>{
 target.innerHTML=birthdayScenes[i];
 target.style.opacity=1;
-},700);
-},9500);
+},400);
+},5000);
 }
 </script>
 
 
 <style>
 #giftSection{
-display:none;position:fixed;inset:0;z-index:10001;
-background:linear-gradient(135deg,#080808,#151515);
-overflow-y:auto;padding:40px 20px;color:#f5f1e8;
+display:none;
+position:fixed;
+inset:0;
+z-index:10001;
+overflow-y:auto;
+padding:40px 20px;
+color:#f5f1e8;
+}
+
+#giftSection video{
+position:fixed;
+inset:0;
+width:100%;
+height:100%;
+object-fit:cover;
+z-index:-2;
+}
+
+#giftSection::before{
+content:'';
+position:fixed;
+inset:0;
+background:rgba(0,0,0,.55);
+z-index:-1;
 }
 .giftWrap{max-width:1100px;margin:auto;text-align:center;}
 .giftBox{font-size:90px;margin:20px 0;animation:floatGift 2.5s ease-in-out infinite;}
@@ -647,10 +674,14 @@ overflow-y:auto;padding:40px 20px;color:#f5f1e8;
 .audioGrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px;}
 .audioCard{background:#111;border-radius:24px;padding:24px;border:1px solid rgba(255,255,255,.08);text-align:left;}
 .audioBtn{display:inline-block;padding:10px 18px;border-radius:999px;border:1px solid rgba(255,255,255,.25);color:white;text-decoration:none;}
+.audioCard{backdrop-filter:blur(12px);background:rgba(0,0,0,.55);}
 .finalNote{margin-top:50px;font-size:24px;line-height:1.9;text-align:center;}
 </style>
 
 <div id="giftSection">
+<video autoplay muted loop playsinline>
+<source src="fireflies_cinematic.mp4" type="video/mp4">
+</video>
 <div class="giftWrap">
 <div class="giftBox">🎁</div>
 <div class="giftTitle">A Few More Stories</div>
@@ -661,16 +692,14 @@ And some stay with us long after they end.
 </div>
 
 <div class="audioGrid">
-<div class="audioCard"><h3>🔍 Byomkesh Bakshi</h3><p>Truth hides in the smallest details.</p><a class="audioBtn" target="_blank" href="https://youtube.com/playlist?list=PLq71IJk8mCV5z1vvLnRcQSLKJnAuwmohf">Listen</a></div>
-<div class="audioCard"><h3>🕵️ Feluda</h3><p>Adventure, deduction and nostalgia.</p><a class="audioBtn" target="_blank" href="https://youtube.com/playlist?list=PLq71IJk8mCV7wu6haZBFgoCauLDYPyMZX">Listen</a></div>
-<div class="audioCard"><h3>🏏 Moti Nandi</h3><p>Where sport becomes story.</p><a class="audioBtn" target="_blank" href="https://youtube.com/playlist?list=PL8JejPLOo8PwS8CtsUW99wnH6eR6eyfZo">Listen</a></div>
-<div class="audioCard"><h3>⚔️ Sadashib</h3><p>Journeys through history and imagination.</p><a class="audioBtn" target="_blank" href="https://youtube.com/playlist?list=PLQmTeTB1gkeoBOw9qJt1N-w3brb4SbIFE">Listen</a></div>
-<div class="audioCard"><h3>😄 One Last Smile</h3><p>Because every birthday deserves one.</p><a class="audioBtn" target="_blank" href="https://youtu.be/cXHr4bv6VEI">Listen</a></div>
+<div class="audioCard"><div style="font-size:48px;margin-bottom:15px;">🔍</div><p>Truth hides in the smallest details.</p><a class="audioBtn" target="_blank" href="https://youtube.com/playlist?list=PLq71IJk8mCV5z1vvLnRcQSLKJnAuwmohf">Listen</a></div>
+<div class="audioCard"><div style="font-size:48px;margin-bottom:15px;">🕵️</div><p>Adventure, deduction and nostalgia.</p><a class="audioBtn" target="_blank" href="https://youtube.com/playlist?list=PLq71IJk8mCV7wu6haZBFgoCauLDYPyMZX">Listen</a></div>
+<div class="audioCard"><div style="font-size:48px;margin-bottom:15px;">🏏</div><p>Where sport becomes story.</p><a class="audioBtn" target="_blank" href="https://youtube.com/playlist?list=PL8JejPLOo8PwS8CtsUW99wnH6eR6eyfZo">Listen</a></div>
+<div class="audioCard"><div style="font-size:48px;margin-bottom:15px;">⚔️</div><p>Journeys through history and imagination.</p><a class="audioBtn" target="_blank" href="https://youtube.com/playlist?list=PLQmTeTB1gkeoBOw9qJt1N-w3brb4SbIFE">Listen</a></div>
+<div class="audioCard"><div style="font-size:48px;margin-bottom:15px;">😄</div><p>Because every birthday deserves one.</p><a class="audioBtn" target="_blank" href="https://youtu.be/cXHr4bv6VEI">Listen</a></div>
 </div>
 
 <div class="finalNote">
-Every journey is made of places, people, stories, and the moments we carry with us.<br><br>
-Thank you for sharing some of yours.<br><br>
 Happy Birthday, Deepan.<br><br>
 May the next chapter be your best one yet.
 </div>
